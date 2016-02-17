@@ -6,7 +6,7 @@
 <h2>Starred Repositories</h2>
   <% @starred_repos.each do |repo| %>
     <p>
-      <%= link_to repo["name"], "https://github.com/#{repo["owner"]["login"]}/#{repo["name"]}"%>
+      <%= link_to repo["name"], "https://github.com/#{repo['owner']['login']}/#{repo['name']}"%>
       <br>
       Created By: <%= repo["owner"]["login"] %>
     </p>
@@ -17,5 +17,5 @@
   Total Followers: <%= @followers.count %>
 </p>
 <% @followers.each do |follower| %>
-  <p><%= link_to follower["login"], "https://github.com/#{follower["login"]}" %></p>
+  <p><%= link_to follower["login"], "https://github.com/#{follower['login']}" %></p>
 <% end %>
