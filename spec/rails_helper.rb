@@ -51,6 +51,8 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 
+  config.extend VCR::RSpec::Macros
+
   config.include FactoryGirl::Syntax::Methods
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
@@ -79,6 +81,11 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+end
+
+VCR.configure do |c|
+  c.cassette_library_dir = 'spec/vcr'
+  c.hook_into :webmock
 end
 
 Shoulda::Matchers.configure do |config|

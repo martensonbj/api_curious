@@ -6,9 +6,9 @@
 <h2>Starred Repositories</h2>
   <% @starred_repos.each do |repo| %>
     <p>
-      <%= link_to repo["name"], "https://github.com/#{repo['owner']['login']}/#{repo['name']}"%>
+      <%= link_to repo[:name], "https://github.com/#{repo[:owner][:login]}/#{repo[:name]}"%>
       <br>
-      Created By: <%= repo["owner"]["login"] %>
+      Created By: <%= repo[:owner][:login] %>
     </p>
   <% end %>
 
@@ -17,7 +17,7 @@
   Total Followers: <%= @followers.count %>
 </p>
 <% @followers.each do |follower| %>
-  <p><%= link_to follower["login"], "https://github.com/#{follower['login']}" %></p>
+  <p><%= link_to follower[:login], "https://github.com/#{follower[:login]}" %></p>
 <% end %>
 
 <h2>Following:</h2>
@@ -25,5 +25,29 @@
   Total Users: <%= @users.count %>
 </p>
 <% @users.each do |user| %>
-  <p><%= link_to user["login"], "https://github.com/#{user['login']}" %></p>
+  <p><%= link_to user[:login], "https://github.com/#{user[:login]}" %></p>
 <% end %>
+
+<h2>Contributions</h2>
+<p>
+  <%= @contributions[1] %>
+</p>
+<p>
+  <%= @contributions[0] %>
+</p>
+
+<h2>Longest Streak</h2>
+<p>
+  <%= @yearly_streak[1] %>
+</p>
+<p>
+  <%= @yearly_streak[0] %>
+</p>
+
+<h2>Current Streak</h2>
+<p>
+  <%= @current_streak[1] %>
+</p>
+<p>
+  <%= @current_streak[0] %>
+</p>
