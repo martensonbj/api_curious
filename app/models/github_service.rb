@@ -12,4 +12,10 @@ class GithubService
     data = JSON.parse(raw_data)
   end
 
+  def followers
+    response = connection.get("/users/#{@current_user.nickname}/followers")
+    raw_data = response.body
+    data = JSON.parse(raw_data)
+  end
+
 end
