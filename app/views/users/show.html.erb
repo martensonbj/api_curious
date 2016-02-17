@@ -11,3 +11,11 @@
       Created By: <%= repo["owner"]["login"] %>
     </p>
   <% end %>
+
+<h2>Current Followers</h2>
+<p>
+  Total Followers: <%= @followers.count %>
+</p>
+<% @followers.each do |follower| %>
+  <p><%= link_to follower["login"], "https://github.com/#{follower["login"]}" %></p>
+<% end %>
