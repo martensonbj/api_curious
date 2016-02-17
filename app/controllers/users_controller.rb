@@ -3,5 +3,6 @@ class UsersController < ApplicationController
     gs = GithubService.new(current_user)
     @starred_repos = gs.starred_repos
     @followers = gs.followers
+    @users = gs.following
   end
 end

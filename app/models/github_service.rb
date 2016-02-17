@@ -20,7 +20,9 @@ class GithubService
   end
 
   def following
-    
+    response = connection.get("/users/#{@current_user.nickname}/following")
+    raw_data = response.body
+    data = JSON.parse(raw_data)
   end
 
 end

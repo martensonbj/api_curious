@@ -12,10 +12,18 @@
     </p>
   <% end %>
 
-<h2>Current Followers</h2>
+<h2>Followers:</h2>
 <p>
   Total Followers: <%= @followers.count %>
 </p>
 <% @followers.each do |follower| %>
   <p><%= link_to follower["login"], "https://github.com/#{follower['login']}" %></p>
+<% end %>
+
+<h2>Following:</h2>
+<p>
+  Total Users: <%= @users.count %>
+</p>
+<% @users.each do |user| %>
+  <p><%= link_to user["login"], "https://github.com/#{user['login']}" %></p>
 <% end %>
