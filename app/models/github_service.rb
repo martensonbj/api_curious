@@ -45,7 +45,17 @@ class GithubService
     stats
   end
 
+  def commit_summary
+    parse(connection.get("/users/#{@current_user.nickname}/events"))
+  end
 
+  def organizations
+    parse(connection.get("/users/#{@current_user.nickname}/orgs"))
+  end
+
+  def repos
+    parse(connection.get("/users/#{@current_user.nickname}/repos"))
+  end
 
   private
 

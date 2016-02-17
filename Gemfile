@@ -11,6 +11,7 @@ gem 'figaro'
 gem 'omniauth-github'
 gem 'faraday'
 gem 'pg'
+gem 'font-awesome-sass'
 
 group :development, :test do
   gem 'byebug'

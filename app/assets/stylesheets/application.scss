@@ -10,11 +10,41 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- 
- 
+
+
  */
 
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "custom";
+
+.nav {
+  #top-nav {
+    margin-right: 120px;
+    margin-left: 150px;
+  }
+  i.fa.fa-github {
+    font-size: 30px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  .header-nav-link {
+      display: block;
+      font-size: 11px;
+      padding-top: 15px;
+      font-weight: bold;
+      line-height: 20px;
+      color: #333;
+  }
+  .header-nav-link:hover, .header-nav-link:focus {
+      color: #4078c0;
+      text-decoration: none;
+  }
+  input.form-control {
+    height: 25px;
+    width: 320px!important;
+    border-radius: 2px;
+  }
+}

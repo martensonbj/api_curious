@@ -7,5 +7,8 @@ class UsersController < ApplicationController
     @contributions = gs.yearly_contributions
     @yearly_streak = gs.yearly_streak
     @current_streak = gs.current_streak
+    @commit_summary = gs.commit_summary
+    @repos = gs.repos
+    @orgs = gs.organizations
   end
 end
