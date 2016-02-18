@@ -11,5 +11,6 @@ class UsersController < ApplicationController
     @repos = gs.repos
     @orgs = gs.organizations
     @pulls = gs.open_pull_requests
+    @following_users = gs.following_users
   end
 end
