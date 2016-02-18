@@ -49,6 +49,23 @@ class GithubService
     parse(connection.get("/users/#{@current_user.nickname}/repos"))
   end
 
+  def commit_summary
+    push_events = parse(connection.get("/users/#{@current_user.nickname}/events")).select do |event|
+      event[:type] == "PushEvent"
+    end
+    commit_messages = push_events.map do |event|
+      event[:payload][:commits].map do |commit|
+        if @current_user.nickname == commit[:author][:name]
+          commit[:message]
+        end
+      end
+    end
+    commit_messages.map! do |message|
+      message.compact!
+    end
+    commit_messages.flatten
+  end
+
   def open_pull_requests
     pull_requests = parse(connection.get("/users/#{@current_user.nickname}/events")).select do |event|
       event[:type] == "PullRequestEvent"
