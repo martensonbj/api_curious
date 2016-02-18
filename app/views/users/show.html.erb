@@ -1,8 +1,54 @@
+<div class="inner_container">
+  <div class = "row">
+    <div class="left_user_details col-md-2">
+      <div class="profile_large">
+        <%= image_tag current_user.image, class:"img-rounded" %>
+      </div>
+      <div class="user_name">
+        <h3><%= current_user.name %></h3>
+        <%= current_user.nickname %>
+      </div>
+    </hr>
+      <div class="join_date">
+        <p>Joined on Jun 30, 2015</p>
+      </div>
+    </hr>
+      <div class="user_stats col-md-12">
+        <div class="col-md-4">
+          <%= @followers.count %>
+        </div>
+        <div class="col-md-4">
+          <%= @starred_repos.count %>
+        </div>
+        <div class="col-md-4">
+          <%= @users.count %>
+        </div>
+      </hr>
+      </div> <!--user_stats-->
+    </div><!--left-user-details-->
 
-<h1>Github User Landing Page</h1>
-<%= current_user.name %>
-<br>
-<%= image_tag current_user.image, class:"image-rounded profile_large" %>
+    <div class="right_top_data col-md-10">
+      <ul class="nav nav-tabs">
+        <li class="active"><%= link_to "Contributions", "#" %></li>
+        <li><%= link_to "Repositories", "#" %></li>
+        <li><%= link_to "Public activity", "#" %></li>
+        <li class="navbar-right"><%= link_to "Edit Profile", "#" %></li>
+      </ul>
+      <div class="header_links col-md-12">
+        <%= link_to "Contributions", "#" %>
+        <%= link_to "Repositories", "#" %>
+        <%= link_to "Public activity", "#" %>
+        <%= link_to "Edit Profile", "#" %>
+      </div>
+      <div class="col-md-6">
+        Popular Repositories Box
+      </div>
+      <div class="col-md-6">
+        Repositories contributed to Box
+      </div>
+    </div><!--right_top_data-->
+  </div> <!--row-->
+</div><!--container-->
 
 <h2>Starred Repositories</h2>
   <% @starred_repos.each do |repo| %>
@@ -32,6 +78,20 @@
 <%= render partial: 'shared/contributions' %>
 
 <h2>Commit Summary</h2>
+<% @commits.each do |commit| %>
+  <p><%= commit %></p>
+<% end %>
+
+<h2>Open Pull Requests</h2>
+<% if @pulls.count == 0 %>
+  <p>There are no open pull requests.</p>
+<% else %>
+  <% @pulls.each do |pull| %>
+    <ul>
+      <li>pull</li>
+    </ul>
+  <% end %>
+<% end %>
 
 <h2>My Repos</h2>
 <% @repos.each do |repo| %>
@@ -45,7 +105,6 @@
   <p>You do not belong to any organizations.</p>
 <% else %>
   <% @orgs.each do |org| %>
-    <%= @orgs %>
-    <%= org[:name] %>
+      <p><%= org[:login] %></p>
   <% end %>
 <% end %>
