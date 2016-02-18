@@ -88,8 +88,22 @@
 <% else %>
   <% @pulls.each do |pull| %>
     <ul>
-      <li>pull</li>
+      <li><%= link_to pull, pull%></li>
     </ul>
+  <% end %>
+<% end %>
+
+<h2>Commit Summary</h2>
+<% @commits.each do |commit| %>
+  <p><%= commit %></p>
+<% end %>
+
+<h2>Open Pull Requests</h2>
+<% if @pulls.count == 0 %>
+  <p>There are no open pull requests.</p>
+<% else %>
+  <% @pulls.each do |pull| %>
+    <p><%= link_to pull, pull%></p>
   <% end %>
 <% end %>
 
@@ -100,11 +114,29 @@
   </p>
 <% end %>
 
+<h2>Current Streak</h2>
+<p>
+  <%= @current_streak[1] %>
+</p>
+<p>
+  <%= @current_streak[0] %>
+</p>
+
 <h2>My Organizations</h2>
 <% if @orgs.count == 0 %>
   <p>You do not belong to any organizations.</p>
 <% else %>
   <% @orgs.each do |org| %>
       <p><%= org[:login] %></p>
+  <% end %>
+<% end %>
+
+
+<h2>Users I'm Following Events</h2>
+<% @following_users.each do |user|%>
+  <p><%= link_to user[:nickname], "https://github.com/#{user[:nickname]}" %></p>
+  Commits:
+  <% user[:commits].each do |commit| %>
+    <p><%= commit %></p>
   <% end %>
 <% end %>
