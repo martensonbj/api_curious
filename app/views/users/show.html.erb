@@ -103,9 +103,7 @@
   <p>There are no open pull requests.</p>
 <% else %>
   <% @pulls.each do |pull| %>
-    <ul>
-      <li>pull</li>
-    </ul>
+    <p><%= link_to pull, pull%></p>
   <% end %>
 <% end %>
 
