@@ -87,22 +87,6 @@
   <p>There are no open pull requests.</p>
 <% else %>
   <% @pulls.each do |pull| %>
-    <ul>
-      <li><%= link_to pull, pull%></li>
-    </ul>
-  <% end %>
-<% end %>
-
-<h2>Commit Summary</h2>
-<% @commits.each do |commit| %>
-  <p><%= commit %></p>
-<% end %>
-
-<h2>Open Pull Requests</h2>
-<% if @pulls.count == 0 %>
-  <p>There are no open pull requests.</p>
-<% else %>
-  <% @pulls.each do |pull| %>
     <p><%= link_to pull, pull%></p>
   <% end %>
 <% end %>
@@ -130,7 +114,6 @@
       <p><%= org[:login] %></p>
   <% end %>
 <% end %>
-
 
 <h2>Users I'm Following Events</h2>
 <% @following_users.each do |user|%>

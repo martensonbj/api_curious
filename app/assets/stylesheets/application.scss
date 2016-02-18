@@ -12,6 +12,11 @@
     width: 75%;
 }
 
+#top-nav a.dropdown-toggle {
+  padding-bottom: 0px;
+  margin: 0px;
+}
+
 .nav {
   #top-nav {
     margin-right: 120px;
@@ -46,4 +51,8 @@
   img {
     max-width: 200px;
   }
+}
+
+.profile_thumbnail {
+  width: 30px;
 }
