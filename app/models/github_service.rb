@@ -46,6 +46,50 @@ class GithubService
   end
 
 
+<<<<<<< Updated upstream
+=======
+  def repos
+    parse(connection.get("/users/#{@current_user.nickname}/repos"))
+  end
+
+  def open_pull_requests
+    pull_requests = parse(connection.get("/users/#{@current_user.nickname}/events")).select do |event|
+      event[:type] == "PullRequestEvent"
+    end
+    open_requests = pull_requests.map do |request|
+      if request[:actor][:login] == @current_user.nickname && request[:payload][:action] == "opened"
+        request[:payload][:pull_request][:html_url]
+      end
+    end
+    open_requests.compact!
+  end
+>>>>>>> Stashed changes
+
+  def following_users
+    following.map do |this_user|
+      # parse(connection.get("/users/#{this_user[:login]}/repos")).map do |repo|
+      #   repo[:name]
+      # end
+      user = this_user[:login]
+      messages = commit_summary_for_user(user)[0...5]
+      {nickname: user, commits: messages}
+    end
+
+  end
+
+  def commit_summary_for_user(given_user)
+    push_events = parse(connection.get("/users/#{given_user}/events")).select do |event|
+      event[:type] == "PushEvent"
+    end
+    commit_messages = push_events.map do |event|
+      event[:payload][:commits].map do |commit|
+        if given_user == event[:actor][:login]
+          commit[:message]
+        end
+      end
+    end
+    commit_messages.flatten
+  end
 
   private
 
