@@ -45,9 +45,6 @@ class GithubService
     stats
   end
 
-
-<<<<<<< Updated upstream
-=======
   def repos
     parse(connection.get("/users/#{@current_user.nickname}/repos"))
   end
@@ -63,7 +60,6 @@ class GithubService
     end
     open_requests.compact!
   end
->>>>>>> Stashed changes
 
   def following_users
     following.map do |this_user|
