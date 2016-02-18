@@ -49,6 +49,10 @@ class GithubService
     parse(connection.get("/users/#{@current_user.nickname}/repos"))
   end
 
+  def organizations
+    parse(connection.get("/users/#{@current_user.nickname}/orgs"))
+  end
+
   def commit_summary
     push_events = parse(connection.get("/users/#{@current_user.nickname}/events")).select do |event|
       event[:type] == "PushEvent"
