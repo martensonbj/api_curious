@@ -6,7 +6,8 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1"></head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
 
 <body>
 <%= render partial: 'shared/navbar' %>
@@ -14,5 +15,12 @@
 <div class="container-fluid">
 <%= yield %>
 </div>
+<!-- <script>
+  $(function() {
+        var BV = new $.BigVideo();
+  BV.init();
+  BV.show("<%= request.protocol + request.host_with_port + asset_path('Working-it.mp4') %>",{ambient:true});
+  });
+</script> -->
 </body>
 </html>
