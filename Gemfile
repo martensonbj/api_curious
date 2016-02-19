@@ -27,6 +27,7 @@ group :development, :test do
   gem 'shoulda-matchers', '~> 3.1'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'simplecov'
 end
 
 group :test do
