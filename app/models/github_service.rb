@@ -84,14 +84,10 @@ class GithubService
 
   def following_users
     following.map do |this_user|
-      # parse(connection.get("/users/#{this_user[:login]}/repos")).map do |repo|
-      #   repo[:name]
-      # end
       user = this_user[:login]
       messages = commit_summary_for_user(user)[0...5]
       {nickname: user, commits: messages}
     end
-
   end
 
   def commit_summary_for_user(given_user)

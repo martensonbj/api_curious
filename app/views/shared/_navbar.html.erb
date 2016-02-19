@@ -23,7 +23,13 @@
           </ul>
         </li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">IMAGE <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <% if current_user != nil %>
+              <%= image_tag current_user.image, class:"img-rounded profile_thumbnail" %>
+            <% else %>
+              IMAGE
+            <% end %>
+          <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li>Signed in as</br>martensonbj</li>
             <li role="separator" class="divider"></li>
@@ -34,7 +40,7 @@
             <li><a href="#">Help</a></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">Settings</a></li>
-            <li><a href="#">Sign out</a></li>
+            <li><%= link_to "Logout", logout_path, method: :delete %></li>
           </ul>
         </li>
       </ul>

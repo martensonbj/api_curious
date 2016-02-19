@@ -1,7 +1,30 @@
 require 'vcr'
 require 'webmock'
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+
 RSpec.configure do |config|
+
+  config.before :each do
+    OmniAuth.config.mock_auth[:github] = nil
+    OmniAuth.config.test_mode = true
+    OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
+                    :provider => 'github',
+                    :uid => ENV["BM_UID"],
+                    :info => {
+                          :name => 'brenna',
+                          :email => 'martensonbj@gmail.com',
+                          :nickname => 'martensonbj',
+                          :image => 'https://avatars.githubusercontent.com/u/13123158?v=3'
+                      },
+                      :credentials => {
+                          :token => ENV["TOKEN"]
+                      }
+    })
+  end
+
+  def generate_user
+    User.create(provider: "github", uid: ENV["BM_UID"], nickname: "martensonbj", email: "martensonbj@gmail.com", name: "Brenna", image: "https://avatars.githubusercontent.com/u/13123158?v=3", token: ENV["TOKEN"])
+  end
 
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
@@ -10,7 +33,6 @@ RSpec.configure do |config|
   config.mock_with :rspec do |mocks|
     mocks.verify_partial_doubles = true
   end
-
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
 =begin
