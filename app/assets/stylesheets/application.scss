@@ -1,6 +1,53 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "custom";
+@import url(https://fonts.googleapis.com/css?family=Mr+De+Haviland|Stalemate);
+
+// font-family: 'Stalemate', cursive;
+// font-family: 'Mr De Haviland', cursive;
+// .home_body video {
+//     position: fixed;
+//     top: 50%;
+//     left: 50%;
+//     min-width: 100%;
+//     min-height: 100%;
+//     width: auto;
+//     height: auto;
+//     z-index: -100;
+//     transform: translateX(-50%) translateY(-50%);
+//     transition: 1s opacity;
+// }
+
+body {
+  font-family: Helvetica, arial, sans-serif;
+}
+
+.home_body {
+  background-image: url('6799910-keyboard-wallpaper-hd.jpg');
+  background-size: cover;
+}
+
+.home_body h1 {
+  font-family: 'Stalemate', cursive;
+  // font-family: 'Mr De Haviland', cursive;
+  color: white;
+  font-size: 90px;
+  letter-spacing: 10px;
+}
+
+.home_content_container a {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #000;
+    font-weight: 300;
+    padding: 40px;
+}
+
+.home_content_container {
+    width: 600px;
+    margin: 0 auto;
+    margin-top: 100px;
+    text-align: center;
+}
 
 .inner_container {
   width: 900px;
@@ -55,4 +102,87 @@
 
 .profile_thumbnail {
   width: 30px;
+}
+
+.panel {
+  margin-top: 20px;
+  a {
+    margin-left: 15px;
+    font-weight: bold;
+  }
+  .panel-body {
+    height: 250px;
+    overflow: scroll;
+    padding: 0px;
+    font-size: 12px;
+  }
+  table span.glyphicon.glyphicon-star {
+    font-size: 12px;
+    margin-left: 0px;
+  }
+}
+
+.left_user_details .divided {
+  border-bottom: 1px solid #eee;
+  width: 210px;
+  padding: 10px;
+
+    .user_name.divided {
+      margin-top: -20px;
+      h3 {
+        font-weight: bold;
+        font-size: 26px;
+      }
+      p {
+        margin-top: -7px;
+        font-weight: 300;
+        font-size: 20px
+      }
+    }
+
+    p.stat {
+      font-size: 27px;
+      font-weight: bold;
+      color: rgb(64, 120, 192);
+      cursor: pointer;
+        p:hover {
+          text-decoration: none;
+        }
+        span {
+          font-size: 10px;
+          font-weight: 300;
+          color: #aaa;
+        }
+        span:hover {
+          color: rgb(64, 120, 192);
+          text-decoration: none;
+        }
+    }
+
+  .stat_toggle {
+    position: relative;
+    top: -60px;
+    left: 210px;
+    height: 500px;
+    width: 500px;
+  }
+}
+
+.streaks {
+  border-collapse: collapse;
+  width: 95%;
+  margin: 0 auto;
+  h3 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  td {
+    border: 1px solid #aaa;
+  }
+}
+
+.data_container {
+  .panel-body {
+    padding: 20px;
+  }
 }

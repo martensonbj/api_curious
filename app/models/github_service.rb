@@ -21,6 +21,11 @@ class GithubService
     parse(connection.get("/users/#{@current_user.nickname}/following"))
   end
 
+  def year_joined
+    data = Nokogiri::HTML(open("https://github.com/#{@current_user.nickname}"))
+    data.xpath("//*[@id='js-pjax-container']/div/div/div[1]/ul/li/time").text
+  end
+
   def yearly_contributions
     data = Nokogiri::HTML(open("https://github.com/#{@current_user.nickname}"))
     stats = []

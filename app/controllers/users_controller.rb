@@ -12,5 +12,6 @@ class UsersController < ApplicationController
     @orgs = gs.organizations
     @pulls = gs.open_pull_requests
     @following_users = gs.following_users
+    @date_joined = gs.year_joined
   end
 end

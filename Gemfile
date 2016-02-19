@@ -13,6 +13,8 @@ gem 'faraday'
 gem 'pg'
 gem 'font-awesome-sass'
 
+
+
 group :development, :test do
   gem 'byebug'
   gem 'pry'

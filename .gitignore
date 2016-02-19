@@ -13,8 +13,6 @@
 /tmp
 
 # Ignore application configuration
+
+# Ignore application configuration
 /config/application.yml
-/spec/spec_helper.rb
-/spec/rails_helper.rb
-/spec/vcr
-/config/secrest.yml

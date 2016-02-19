@@ -1,0 +1,40 @@
+<div class="container-fluid data_container">
+  <div class="row">
+
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Commit Summary</h3>
+        </div>
+        <div class="panel-body">
+          <% if @commits.count > 0 %>
+            <% @commits.each do |commit| %>
+              <p><%= commit %></p>
+            <% end %>
+          <% else %>
+            <p>
+              "You have no recent commits"
+            </p>
+          <% end %>
+        </div>
+      </div><!--panel-->
+    </div><!--colmd6-->
+
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Open Pull Requests</h3>
+        </div>
+        <div class="panel-body">
+          <% if @pulls.count == 0 %>
+            <p>There are no open pull requests.</p>
+          <% else %>
+            <% @pulls.each do |pull| %>
+              <p><%= link_to pull, pull%></p>
+            <% end %>
+          <% end %>
+        </div>
+      </div><!--panel-->
+    </div><!--colmd6-->
+  </div><!--row-->
+</div>

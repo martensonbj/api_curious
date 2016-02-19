@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ApiCurious</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Mr+De+Haviland|Stalemate' rel='stylesheet' type='text/css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1"></head>
+<body class = "home_body">
+
+<!-- <%= video_path("Working-it.mp4") %> -->
+
+
+<!-- <video autoplay id="bgvid" loop>
+<source src="videos/Working-it.webm" type="video/webm">
+<source src="videos/Working-it.mp4" type="video/mp4">
+</video> -->
+
+<div class="container-fluid">
+<%= yield %>
+</div>
+
+</body>
+</html>
