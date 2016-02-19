@@ -78,8 +78,14 @@
 <%= render partial: 'shared/contributions' %>
 
 <h2>Commit Summary</h2>
-<% @commits.each do |commit| %>
-  <p><%= commit %></p>
+<% if @commits.count > 0 %>
+  <% @commits.each do |commit| %>
+    <p><%= commit %></p>
+  <% end %>
+<% else %>
+  <p>
+    "You have no recent commits"
+  </p>
 <% end %>
 
 <h2>Open Pull Requests</h2>

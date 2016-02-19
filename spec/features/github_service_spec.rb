@@ -7,7 +7,6 @@ describe 'GithubService' do
     click_on "Login with Github"
     user = generate_user
     @service = GithubService.new(user)
-
   end
 
   context "starred repos" do
@@ -50,6 +49,16 @@ describe 'GithubService' do
       VCR.use_cassette("contributions") do
         contribution = @service.yearly_contributions
         expect(contribution.first).to eq("574 total")
+      end
+    end
+  end
+
+  context "commits" do
+    it "prints recent commits" do
+      VCR.use_cassette("commits") do
+        commits = @service.commit_summary
+        expect(commits.count).to eq(7)
+        expect(commit.class).to eq("string")
       end
     end
   end
