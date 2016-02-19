@@ -17,3 +17,4 @@
 /spec/spec_helper.rb
 /spec/rails_helper.rb
 /spec/vcr
+/config/secrest.yml

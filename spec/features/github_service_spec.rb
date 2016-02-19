@@ -57,9 +57,22 @@ describe 'GithubService' do
     it "prints recent commits" do
       VCR.use_cassette("commits") do
         commits = @service.commit_summary
-        expect(commits.count).to eq(7)
-        expect(commit.class).to eq("string")
+        commit = commits.first
+        expect(commits.count).to_not be_nil
+        expect(commit.class).to eq(String)
       end
+    end
+  end
+
+  context "repos" do
+    it "prints a list of repos" do
+      VCR.use_cassette("repos") do
+        repos = @service.repos
+        repo = repos.first
+
+        expect(repos.count).to_not be_nil
+        expect(repo[:name]).to include("api_curious")
+    end
     end
   end
 
